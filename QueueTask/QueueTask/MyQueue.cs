@@ -25,11 +25,7 @@ namespace QueueTask
         }
         bool isFull()
         {
-            if (currentOut == 0 && currentIn == SIZE - 1)
-            {
-                return true;
-            }
-            if (currentOut == currentIn + 1)
+            if ((currentOut == 0 && currentIn == SIZE - 1) || (currentOut == currentIn + 1))
             {
                 return true;
             }
@@ -38,10 +34,7 @@ namespace QueueTask
 
         bool isEmpty()
         {
-            if (currentOut == -1)
-                return true;
-            else
-                return false;
+            return (currentOut == -1);
         }
 
 
@@ -60,7 +53,6 @@ namespace QueueTask
             }
         }
 
-        // Удаление элемента
         public T deQueue()
         {
             T element;
